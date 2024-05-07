@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electricity Bill Calculator</title>
+<style>
+body {
+  background-image:url('tned bg.jpg');
+  background-size:cover;
+  }
+    
+    table {
+        width: 50%;
+        margin: auto;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    form {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+     <body>
+          <center><img src="C:\Users\vaisa\Desktop\wt\eb image.jpg" alt="eb image"></center>
+             <h1><center>Tamilnadu Generation And Distribution Corporation Limited</center></h1>
+                <h2><center>Electricity Bill Calculator</center></h2>
+      </body>
+
+<form id="ebBillForm" onsubmit="calculateBill(event)">
+    <label for="customerName">Customer Name:</label>
+    <input type="text" id="customerName" name="customerName" required><br><br>
+    
+    <label for="previousReading">Previous Reading (kWh):</label>
+    <input type="number" id="previousReading" name="previousReading" required><br><br>
+    
+    <label for="currentReading">Current Reading (kWh):</label>
+    <input type="number" id="currentReading" name="currentReading" required><br><br>
+    
+    <button type="submit">Calculate</button>
+</form>
+
+<div id="billDetailsContainer"></div>
+
+<script>
+function calculateBill(event) {
+    event.preventDefault();
+    
+    var customerName = document.getElementById("customerName").value;
+    var previousReading = parseFloat(document.getElementById("previousReading").value);
+    var currentReading = parseFloat(document.getElementById("currentReading").value);
+    
+    var unitsConsumed = currentReading - previousReading;
+    var totalBillAmount = calculateTotalBill(unitsConsumed);
+    
+    var billDetailsHTML = '<table>';
+    billDetailsHTML += '<tr><th>Name</th><th>Previous Reading (kWh)</th><th>Current Reading (kWh)</th><th>Units Consumed (kWh)</th><th>Total Bill Amount (INR)</th></tr>';
+    billDetailsHTML += '<tr>';
+    billDetailsHTML += '<td>' + customerName + '</td>';
+    billDetailsHTML += '<td>' + previousReading + '</td>';
+    billDetailsHTML += '<td>' + currentReading + '</td>';
+    billDetailsHTML += '<td>' + unitsConsumed + '</td>';
+    billDetailsHTML += '<td>' + totalBillAmount.toFixed(2) + '</td>';
+    billDetailsHTML += '</tr>';
+    billDetailsHTML += '</table>';
+    
+    document.getElementById('billDetailsContainer').innerHTML = billDetailsHTML;
+}
+
+function calculateTotalBill(unitsConsumed) {
+    // First 100 units are free
+    var freeUnits = 100;
+    var ratePerUnit = 5; // Rate after free units
+    
+    var billAmount = 0;
+    if (unitsConsumed > freeUnits) {
+        var billableUnits = unitsConsumed - freeUnits;
+        billAmount = billableUnits * ratePerUnit;
+    }
+    return billAmount;
+}
+</script>
+
+</body>
+</html>
