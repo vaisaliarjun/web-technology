@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form</title>
+<style>
+body {
+  background-color: #90EE90; /* Change background color */
+}
+
+.container {
+    width: 50%; /* Set width of the container */
+    margin: auto; /* Center the container */
+    padding-top: 50px; /* Add some top padding for better visual appearance */
+}
+
+h2 {
+    text-align: center; /* Center the heading */
+}
+
+form {
+    text-align: center; /* Center the form content */
+}
+
+label {
+    display: inline-block;
+    text-align: left;
+}
+
+.radio-container {
+    text-align: left; /* Align radio buttons to the left */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: calc(100% - 18px); /* Make the input fields and select dropdowns expand to maximum width */
+    padding: 8px; /* Add padding for better visual appearance */
+    margin-bottom: 10px; /* Add margin between elements */
+}
+
+button[type="submit"] {
+    width: 100%; /* Make the submit button expand to minimum width */
+    padding: 10px; /* Add padding for better visual appearance */
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="https://rchi2019.kongu.edu/images/header.png" style="width: 100%; min-width: 100%;" />
+    </header>
+
+<div class="container">
+    <h2>Student Registration Form</h2>
+
+    <form id="registrationForm" onsubmit="submitForm(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="rollNumber">Roll Number:</label>
+        <input type="text" id="rollNumber" name="rollNumber" pattern="[0-9]{2}[A-Za-z]{3}[0-9]{3}" title="Format: 2 digits followed by 3 characters followed by 3 digits" required><br><br>
+            <div class="radio-container">
+            <label>Gender:</label><br>
+            
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br><br>
+            
+        </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Password must contain at least one digit, one uppercase letter, one lowercase letter, and at least 6 characters" required>
+        <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()">
+        <label for="showPassword">Show Password</label><br><br>
+          
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="areaOfInterest">Area of Interest:</label>
+        <select id="areaOfInterest" name="areaOfInterest" required>
+            <option value="">Select Area of Interest</option>
+            <option value="web technology">Web Technology</option>
+            <option value="Cyber Security">Cyber Security</option>
+            <option value="DBMS">DBMS</option>
+            <option value="NETWORKING">NETWORKING</option>
+            <option value="App Development">APP DEVELOPMENT</option>
+        </select><br><br>
+
+        <label for="courses">Courses:</label>
+        <select id="courses" name="courses"  required>
+            <option value="">Select Courses</option>
+            <option value="IT">IT</option>
+            <option value="CSE">CSE</option>
+            <option value="EIE">EIE</option>
+            <option value="EEE">EEE</option>
+            <option value="CSD">CSD</option>
+            <option value="MECH">MECH</option>
+        </select><br><br>
+
+        <label>Programming Languages Known :</label><br>
+        <input type="checkbox" id="c" name="programmingLanguages" value="C">
+        <label for="c">C</label><br>
+        <input type="checkbox" id="cpp" name="programmingLanguages" value="C++">
+        <label for="cpp">C++</label><br>
+        <input type="checkbox" id="java" name="programmingLanguages" value="Java">
+        <label for="java">Java</label><br>
+        <input type="checkbox" id="python" name="programmingLanguages" value="Python">
+        <label for="python">Python</label><br>
+        <input type="checkbox" id="javascript" name="programmingLanguages" value="JavaScript">
+        <label for="javascript">JavaScript</label><br>
+        <input type="checkbox" id="datastructures" name="programmingLanguages" value="Data Structures">
+        <label for="datastructures">Data Structures</label><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get form values
+        var name = document.getElementById("name").value;
+        var rollNumber = document.getElementById("rollNumber").value;
+        var gender = document.querySelector('input[name="gender"]:checked').value;
+        var dob = document.getElementById("dob").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var areaOfInterest = document.getElementById("areaOfInterest").value;
+
+        var courses = [];
+        var coursesSelect = document.getElementById("courses");
+        for (var i = 0; i < coursesSelect.options.length; i++) {
+            if (coursesSelect.options[i].selected) {
+                courses.push(coursesSelect.options[i].value);
+            }
+        }
+
+        var programmingLanguages = [];
+        var programmingLanguageCheckboxes = document.querySelectorAll('input[name="programmingLanguages"]:checked');
+        programmingLanguageCheckboxes.forEach(function(checkbox) {
+            programmingLanguages.push(checkbox.value);
+        });
+
+        // Display submitted values
+        console.log("Name: " + name);
+        console.log("Roll Number: " + rollNumber);
+        console.log("Gender: " + gender);
+        console.log("Date of Birth: " + dob);
+        console.log("Email: " + email);
+        console.log("Password: " + password);
+        console.log("Area of Interest: " + areaOfInterest);
+        console.log("Courses: " + courses.join(", "));
+        console.log("Programming Languages Known: " + programmingLanguages.join(", "));
+
+        // You can send the form data to a server here using AJAX or any other method
+    }
+
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("password");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+        } else {
+            passwordInput.type = "password";
+        }
+    }
+</script>
+
+</body>
+</html>
