@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin DashBoard</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h3 class="bg-dark text-white p-3 text-center mb-4">Staff Details Upload</h3>
+    <div class="container">
+    <form action="http://localhost:3131/Upload/StaffDetails" method="post">
+    <div class="container">
+        <div class="container d-flex justify-content-center align-items-center gap-3 d-flex">
+        <div class="input-group">
+            <label for="input1">Staff Name</label>
+            <input type="text" id="input1"  placeholder="Enter Name" name="staffName">
+        </div>
+        &nbsp;&nbsp;
+        <div class="input-group">
+            <label for="input1">Department</label>
+            <input type="text" id="input1" placeholder="Enter Department" name="Department">
+        </div>
+    </div>
+    <div class="container gap-4 d-flex">
+        <div class="input-group">
+            <label for="input2">Qualification</label>
+            <input type="text" id="input2" placeholder="Enter Qualification" name="qualification">
+        </div>
+        &nbsp;&nbsp;
+        <div class="input-group">
+            <label for="input3">Area of Specialization</label>
+            <input type="text" id="input3" placeholder="Enter Specialization" name="AOS">
+        </div>
+        &nbsp;&nbsp;
+        <div class="input-group">
+            <label for="input4">Date of Joining KEC</label>
+            <input type="text" id="input4" placeholder="Enter Joining Date" name="DateJoin">
+        </div>
+        &nbsp;&nbsp;
+        <div class="input-group">
+            <label for="input4">Experience in (Years)</label>
+            <input type="text" id="input4" placeholder="Enter Experience" name="Experience">
+        </div>
+    </div>
+
+    <h5 style="margin:30px;">Number of Papers Published</h5>
+    <div class="container gap-4 d-flex">
+        <div class="input-group">
+            <label for="input2">National Journals</label>
+            <input type="number" id="input2" placeholder="Enter National Journals" name="NoPaper">
+        </div>
+        &nbsp;&nbsp;
+        <div class="input-group">
+            <label for="input3">International</label>
+            <input type="number" id="input3" placeholder=" Enter International" name="International">
+        </div>
+        &nbsp;&nbsp;
+        <div class="input-group">
+            <label for="input4">Journals:</label>
+            <input type="number" id="input4" placeholder="Enter Journals" name="Journals">
+        </div>
+        &nbsp;&nbsp;
+        <div class="input-group">
+            <label for="input4">National Conferences</label>
+            <input type="number" id="input4" placeholder="Enter National Conferences" name="natConferenceNumber">
+        </div>
+        &nbsp;&nbsp;
+        <div class="input-group">
+            <label for="input4">International Conference</label>
+            <input type="number" id="input4" placeholder="Enter International Conference" name="interconference">
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <label for="textarea1">Journals Published (National) </label>
+            <textarea class="form-control" id="textarea1" rows="4" placeholder="Enter Journals Published " name="JournalsPublished"></textarea>
+        </div> 
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <label for="textarea1">Journals Published (International) </label>
+            <textarea class="form-control" id="textarea1" rows="4" placeholder="Journals Published (International)" name="InterJournalsPublished"></textarea>
+        </div> 
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <label for="textarea1">National Conferences</label>
+            <textarea class="form-control" id="textarea1" rows="4" placeholder="National Conferences"
+            name="natConference"></textarea>
+        </div> 
+    </div>
+    <h5 style="margin:30px;">
+        Contact Details</h5>
+    <div class="container gap-4 d-flex">
+        <div class="input-group">
+            <label for="input2">Email</label>
+            <input type="email" id="input2" placeholder="Enter Email" name="email">
+        </div>
+        &nbsp;&nbsp;
+        <div class="input-group">
+            <label for="input3">Mobile</label>
+            <input type="number" id="input3" placeholder="Enter Mobile" name="Mobile">
+        </div>
+        &nbsp;&nbsp;
+        <div class="input-group">
+            <label for="input4">Office</label>
+            <input type="number" id="input4" placeholder="Enter Office" name="office">
+        </div>
+    </div>
+    <br>
+    <div class="container gap-4 d-flex">
+        <div class="form-group">
+            <label for="textarea1">Subjects Handled (separated by comma)</label>
+            <textarea class="form-control" id="textarea1" rows="4"  placeholder="Enter Subjects E-References"
+            name="SubjectHandled"> </textarea>
+        </div>
+        &nbsp;&nbsp;
+        <div class="form-group">
+            <label for="textarea1">Subjects E-References (separated by comma)</label>
+            <textarea class="form-control" id="textarea1" rows="4" placeholder="Enter Subjects E-References"
+            name="SEReferences"></textarea>
+        </div> 
+    </div>
+    <div class="container gap-4 d-flex">
+        <div class="form-group">
+            <label for="textarea1">Professional Affiliation  (separated by comma)</label>
+            <textarea class="form-control" id="textarea1" rows="4" placeholder="Enter Professional Affiliation"
+            name="PAffiliation "></textarea>
+        </div> 
+        &nbsp;&nbsp;
+        <div class="form-group">
+            <label for="textarea1">Awards (separated by comma)s</label>
+            <textarea class="form-control" id="textarea1" rows="4" placeholder="Enter Awards"
+            name="Awards"></textarea>
+        </div> 
+    </div>
+    <div class="form-group text-center">
+        <button type="submit" class="submit-button">Upload</button>
+    </div>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</body>
+</html>

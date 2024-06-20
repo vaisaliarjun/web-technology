@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insert Data</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      background-image: url('https://static.vecteezy.com/system/resources/previews/002/836/813/original/outer-space-landscape-free-vector.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      margin-top: 10vh;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    #studentForm label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    #studentForm input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #studentForm button[type="button"], form button[type="button"] {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #studentForm button[type="button"]:hover, form button[type="button"]:hover {
+      background-color: #0056b3;
+    }
+    .report-link {
+      display: block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007bff;
+    }
+    .report-link:hover {
+      text-decoration: underline;
+    }
+    .url {
+      margin-top: 20px;
+    }
+    .image img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    #studentForm {
+      margin-top: 15vh;
+      margin-left: 10vh;
+    }
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image">
+      <img src="https://cdni.iconscout.com/illustration/premium/thumb/education-online-or-young-people-learning-together-2706750-2268249.png" alt="Student Learning Image">
+    </div>
+    <div id="studentForm">
+      <div class="studentForm">
+        <label for="name">Name</label>
+        <input type="text" id="name"   placeholder="Enter your Name"><br>
+        <label for="email">Email</label>
+        <input type="text" id="email"  placeholder="Enter your Email"><br>
+        <span id="emailError" class="error-message mb-4"></span><br><br>
+        <button type="button" id="loginStudentBtn" onclick="next()">Login as student</button>
+        <a href="http://localhost:3131/admin" style="text-decoration: none; background-color: #d5ab01; padding: 10px; border-radius: 5px; color: #ffffff;">Login as Admin</a>
+      </div>    
+    </div>
+  </div>
+  <script>
+    function next() {
+      var emailInput = document.getElementById('email');
+      var email = emailInput.value.trim();
+
+      if (!email.endsWith('@kongu.edu')) {
+        document.getElementById('emailError').textContent = 'Please provide a Kongu email address.';
+        return false;
+      } else {
+        document.getElementById('emailError').textContent = '';
+        window.location.href = 'http://localhost:3131/search';
+        return true;
+      }
+    }
+   
+    
+  </script>
+</body>
+</html>

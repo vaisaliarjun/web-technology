@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Staff Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* .container {
+      max-width: 800px; 
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    } */
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="name-dept bg-dark p-3 text-white text-center mb-5">  
+    <h1><%= user.staffName %></h1>
+    <h4><%= user.Department %></h4>
+  </div>
+    <div class="box1 d-flex justify-content-center gap-4">
+            <p><strong>Qualification:</strong> <%= user.qualification %></p>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <p><strong>Area of Specialization:</strong> <%= user.AOS %></p>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <p><strong>Date Joined:</strong> <%= user.DateJoin %></p>
+          </div>
+          <div class="personaldetails p-3 d-flex justify-content-center">          
+            <p><strong>Email:</strong> <%= user.email %></p>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <p><strong>Office:</strong> <%= user.office %></p>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <p><strong>Experience:</strong> <%= user.Experience %></p>
+          </div>
+          <div class="paper  text-center">
+            <p><strong>Number of Papers:</strong> <%= user.NoPaper %></p>
+            <p><strong>International Conferences:</strong> <%= user.International %></p>
+            <p><strong>Journals:</strong> <%= user.Journals %></p>
+            <p><strong>National Conferences:</strong> <%= user.natConferenceNumber %></p>
+            <p><strong>International Conferences:</strong> <%= user.interconference %></p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#experienceModal">
+              subject Handled
+            </button>
+        
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#publicationsModal">
+              View Publications
+            </button>
+          </div>
+  </div>
+    </div>
+    <div class="modal fade" id="experienceModal" tabindex="-1" role="dialog" aria-labelledby="experienceModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="experienceModalLabel">Experience</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Subjects Handled:</strong> <%= user.SubjectHandled %></p>
+            <p><strong>SE References:</strong> <%= user.SEReferences %></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="publicationsModal" tabindex="-1" role="dialog" aria-labelledby="publicationsModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="publicationsModalLabel">Publications</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+        
+            <p><strong>Journals Published:</strong> <%= user.JournalsPublished %></p>
+            <p><strong>International Journals Published:</strong> <%= user.InterJournalsPublished %></p>
+            <p><strong>National Conferences Attended:</strong> <%= user.natConference %></p>
+            <p><strong>Awards:</strong> <%= user.Awards %></p>
+            <p><strong>Professional Affiliations:</strong> <%= user.PAffiliation %></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
